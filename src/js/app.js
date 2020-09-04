@@ -4,9 +4,8 @@ export default class Team {
   }
 
   add(character) {
-    const { size } = this.members;
+    if (this.members.has(character)) throw new Error('This character is already in the team!');
     this.members.add(character);
-    if (size === this.members.size) throw new Error('This character is already in the team!');
   }
 
   addAll(characterList) {
